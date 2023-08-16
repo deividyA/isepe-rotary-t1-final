@@ -1,0 +1,52 @@
+<%= form_with(model: person) do |form| %>
+  <% if person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+        <% person.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :doc_number, class: "form-label" %>
+    <%= form.text_field :doc_number, class:"form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :phone, class: "form-label" %>
+    <%= form.text_field :phone, class:"form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :address, class: "form-label" %>
+    <%= form.text_field :address, class:"form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.text_field :email, class:"form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :workplace, class: "form-label" %>
+    <%= form.text_field :workplace, class:"form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :beneficiary, class: "form-check-label" %>
+    <%= form.check_box :beneficiary, class:"form-check-input" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

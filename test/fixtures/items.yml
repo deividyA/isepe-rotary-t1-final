@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  id_type_item: 1
+  availability: false
+  item_condition: MyString
+
+two:
+  description: MyString
+  id_type_item: 1
+  availability: false
+  item_condition: MyString

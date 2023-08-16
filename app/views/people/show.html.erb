@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <p id="notice"><%= notice %></p>
+
+      <div class="form-group mb-3">
+    <p><strong>Name:</strong></p>
+    <div>
+      <%= @person.name %>
+    </div>
+  </div>
+  
+      <div class="form-group mb-3">
+    <p><strong>Doc number:</strong></p>
+    <div>
+      <%= @person.doc_number %>
+    </div>
+  </div>
+  
+      <div class="form-group mb-3">
+    <p><strong>Phone:</strong></p>
+    <div>
+      <%= @person.phone %>
+    </div>
+  </div>
+  
+      <div class="form-group mb-3">
+    <p><strong>Address:</strong></p>
+    <div>
+      <%= @person.address %>
+    </div>
+  </div>
+  
+      <div class="form-group mb-3">
+    <p><strong>Email:</strong></p>
+    <div>
+      <%= @person.email %>
+    </div>
+  </div>
+  
+      <div class="form-group mb-3">
+    <p><strong>Workplace:</strong></p>
+    <div>
+      <%= @person.workplace %>
+    </div>
+  </div>
+  
+      <div class="form-group mb-3">
+    <p><strong>Beneficiary:</strong></p>
+    <div>
+      <%= @person.beneficiary %>
+    </div>
+  </div>
+  
+  
+  <%= link_to 'Edit', edit_person_path(@person), class: "btn btn-primary min-width-btn" %>
+  <%= link_to 'Back', people_path, class: "btn btn-light min-width-btn" %>
+</div>

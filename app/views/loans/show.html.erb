@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <p id="notice"><%= notice %></p>
+
+      <div class="form-group mb-3">
+    <p><strong>Id item:</strong></p>
+    <div>
+      <%= @loan.id_item %>
+    </div>
+  </div>
+  
+      <div class="form-group mb-3">
+    <p><strong>Id people:</strong></p>
+    <div>
+      <%= @loan.id_people %>
+    </div>
+  </div>
+  
+      <div class="form-group mb-3">
+    <p><strong>Lending date:</strong></p>
+    <div>
+      <%= @loan.lending_date %>
+    </div>
+  </div>
+  
+      <div class="form-group mb-3">
+    <p><strong>Return date:</strong></p>
+    <div>
+      <%= @loan.return_date %>
+    </div>
+  </div>
+  
+      <div class="form-group mb-3">
+    <p><strong>Reservation date:</strong></p>
+    <div>
+      <%= @loan.reservation_date %>
+    </div>
+  </div>
+  
+  
+  <%= link_to 'Edit', edit_loan_path(@loan), class: "btn btn-primary min-width-btn" %>
+  <%= link_to 'Back', loans_path, class: "btn btn-light min-width-btn" %>
+</div>

@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Loans</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+          <th>Id item</th>
+          <th>Id people</th>
+          <th>Lending date</th>
+          <th>Return date</th>
+          <th>Reservation date</th>
+          <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @loans.each do |loan| %>
+        <tr>
+            <td><%= loan.id_item %></td>
+            <td><%= loan.id_people %></td>
+            <td><%= loan.lending_date %></td>
+            <td><%= loan.return_date %></td>
+            <td><%= loan.reservation_date %></td>
+            <td><%= link_to 'Show', loan %></td>
+          <td><%= link_to 'Edit', edit_loan_path(loan) %></td>
+          <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Loan', new_loan_path, class: "btn btn-success min-width-btn" %>
+
+</div>

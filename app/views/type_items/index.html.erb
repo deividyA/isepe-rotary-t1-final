@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Type Items</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+          <th>Description</th>
+          <th>Return term</th>
+          <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @type_items.each do |type_item| %>
+        <tr>
+            <td><%= type_item.description %></td>
+            <td><%= type_item.return_term %></td>
+            <td><%= link_to 'Show', type_item %></td>
+          <td><%= link_to 'Edit', edit_type_item_path(type_item) %></td>
+          <td><%= link_to 'Destroy', type_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Type Item', new_type_item_path, class: "btn btn-success min-width-btn" %>
+
+</div>
