@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_01_190556) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_26_211752) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_01_190556) do
     t.string "item_condition", limit: 20
   end
 
-  create_table "loan", id: :serial, force: :cascade do |t|
+  create_table "loans", id: :integer, default: -> { "nextval('loan_id_seq'::regclass)" }, force: :cascade do |t|
     t.integer "id_item"
     t.integer "id_people"
     t.date "lending_date"
@@ -50,13 +50,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_01_190556) do
     t.decimal "return_term"
   end
 
-  create_table "users", primary_key: "login", id: { type: :string, limit: 50 }, force: :cascade do |t|
-    t.string "password", limit: 20
-    t.integer "person_id"
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "items", "type_items", column: "id_type_item", name: "id_item"
-  add_foreign_key "loan", "items", column: "id_item", name: "id_item"
-  add_foreign_key "loan", "people", column: "id_people", name: "id_person"
-  add_foreign_key "users", "people", name: "id_people"
+  add_foreign_key "loans", "items", column: "id_item", name: "id_item"
+  add_foreign_key "loans", "people", column: "id_people", name: "id_person"
 end

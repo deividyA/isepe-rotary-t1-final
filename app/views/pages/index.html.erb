@@ -1,4 +1,1 @@
-<h1>Pages#index</h1>
-<h2>Olá alunos! Parabéns, já chegou até aqui <3</>
-<p>Find me in app/views/pages/index.html.erb</>
-<%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
+<%= react_component("App", { user_email: current_user.email })%>
