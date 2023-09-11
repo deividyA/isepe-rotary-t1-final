@@ -7,7 +7,6 @@ const App = (props) => {
   const appProps = props.user_email;
   return (
     <React.Fragment>
-
       <MainHeader user_email={appProps}/>
       <MainFooter />
     </React.Fragment>

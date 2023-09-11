@@ -1,22 +1,35 @@
 import React, { useState } from 'react';
 
-
 const SubmitButton = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user: { email, password } }), // Updated body structure
+      });
   
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // Handle form submission logic here
-      console.log('Email:', email);
-      console.log('Password:', password);
-      // Call API or perform any other necessary actions
-    };
+      if (response.ok) {
+        console.log('ok');
+      } else {
+        console.log('nao ok');
+      }
+    } catch (error) {
+      console.error('OOPS', error);
+    }
+  };
+    
     return (
         <React.Fragment>
+
             <div class="fixed inset-0 bg-blue-700 flex items-center justify-center" >
                 <div class="rounded-3xl h-5/6 w-4/6 bg-white text-center" >
-                    <form onSubmit={handleSubmit}>
+                <form action="/auth/login" method="POST" onSubmit={handleSubmit}>
                         <div className="field">
                             <label>Email</label>
                             <input
@@ -37,7 +50,7 @@ const SubmitButton = () => {
                                 autoComplete="current-password"
                             />
                         </div>
-
+                        
                         <div className="actions">
                             <button type="submit">Log in</button>
                         </div>
